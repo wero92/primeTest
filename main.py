@@ -1,12 +1,16 @@
+import math
+
+def isPrime(number):
+  if (number < 2):
+    return False
+  else:
+    for i in range(2, int(math.sqrt(number)) + 1):
+      if number % i == 0:
+        return False
+  return True
+
 cases = int(input(''))
 while cases:
   number = int(input(''))
   cases -= 1
-  first = False if number<=1 else True
-  for i in range(2, number):
-    if number % i == 0:
-      first = False
-  if first:
-    print("Liczba jest pierwsza")
-  else:
-    print("Liczba NIE JEST pierwsza")
+  print("Liczba jest pierwsza") if isPrime(number) else print("Liczba NIE JEST pierwsza")
